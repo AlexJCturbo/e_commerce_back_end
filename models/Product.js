@@ -10,19 +10,16 @@ class Product extends Model { }
 Product.init(
   {
     //Defining products columns
-    //id
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    //category
     product_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    //price
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -30,7 +27,6 @@ Product.init(
         isDecimal: true
       }
     },
-    //stock
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
