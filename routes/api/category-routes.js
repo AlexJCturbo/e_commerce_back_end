@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Category.update(
     {
-      category_name: req.body.category_name
+      category_name: req.body.category_name,
     },
     {
       where: {
@@ -85,19 +85,19 @@ router.put('/:id', (req, res) => {
         res.status(404).json({ message: 'No category found with this id' });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(dbCategoryData)
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });
+    })
 });
 
 
 // delete a category by its `id` value
 router.delete('/:id', (req, res) => {
   Category.destroy({
-    truncate: true, cascade: false,
+    cascade: false,
     where: {
       id: req.params.id
     }
@@ -107,12 +107,12 @@ router.delete('/:id', (req, res) => {
         res.status(404).json({ message: 'No category found with this id' });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(dbCategoryData)
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });
+    })
 });
 
 module.exports = router;
